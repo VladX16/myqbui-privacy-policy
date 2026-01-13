@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - MyQBUI</title>
+    <title>Privacy Policy - qBittorrent WebUI</title>
     <style>
         * {
             margin: 0;
@@ -152,6 +153,26 @@
             font-size: 1.2em;
         }
 
+        .yes-services ul {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .yes-services li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .yes-services li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
         .permission-list {
             background: #f8f9fa;
             padding: 15px 20px;
@@ -218,130 +239,173 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <h1>Privacy Policy</h1>
-            <div class="subtitle">MyQBUI - Remote Control for qBittorrent</div>
+            <div class="subtitle">qBittorrent WebUI</div>
         </div>
 
         <div class="content">
             <div class="last-updated">
-                <strong>Last Updated:</strong> January 12, 2026
+                <strong>Last Updated:</strong> January 13, 2026
             </div>
 
-            <h2>Overview</h2>
-            <p>MyQBUI is a remote control application for qBittorrent. This privacy policy explains how the app handles your information.</p>
+            <h2>Introduction</h2>
+            <p>This Privacy Policy describes how qBittorrent WebUI ("we", "our", or "the app") collects, uses, and
+                protects your information.</p>
 
             <h2>Information We Collect</h2>
 
+            <h3>Automatically Collected Information</h3>
+            <ul>
+                <li><strong>Device Identifier:</strong> A unique device ID generated when you first install the app</li>
+                <li><strong>Trial Information:</strong> Trial start date and status (active/expired)</li>
+                <li><strong>Purchase Information:</strong> Purchase tokens from Google Play for verification only</li>
+            </ul>
+
             <h3>User-Provided Information</h3>
             <ul>
-                <li><strong>Server Connection Details:</strong> qBittorrent server URL, username, and password</li>
-                <li><strong>Preferences:</strong> Download path history, card display preferences, notification settings</li>
+                <li><strong>qBittorrent Server Credentials:</strong> Server URL, username, and password</li>
+                <li><strong>Biometric Data (Optional):</strong> Stored locally using Android Keystore</li>
             </ul>
-
-            <h3>Automatically Collected Information</h3>
-            <div class="highlight-box">
-                <h3>None</h3>
-                <p>This app does <strong>not</strong> collect analytics, usage statistics, or any telemetry data</p>
-            </div>
-
-            <h2>How We Store Your Information</h2>
-
-            <h3>Local Storage Only</h3>
-            <p>All data is stored <strong>exclusively on your device:</strong></p>
-            <ul>
-                <li>Server credentials are encrypted and stored in Android's secure storage</li>
-                <li>Biometric authentication (if enabled) uses Android's native Keystore</li>
-                <li>Preferences are stored in local SharedPreferences</li>
-                <li>Path history is saved in local storage</li>
-            </ul>
-
-            <h3>No Cloud Backup</h3>
-            <p>Your credentials and settings are <strong>not</strong> backed up to any cloud service. If you uninstall the app or reset your device, this data will be lost.</p>
 
             <h2>How We Use Your Information</h2>
             <ul>
-                <li><strong>Server Connection:</strong> Your credentials are used solely to authenticate with your qBittorrent server</li>
-                <li><strong>Background Monitoring:</strong> When enabled, the app periodically checks your server to send notifications</li>
-                <li><strong>Local Notifications:</strong> The app sends notifications for torrent events (completion, errors, pauses)</li>
+                <li><strong>Trial Management:</strong> Track your 3-day free trial period</li>
+                <li><strong>Purchase Verification:</strong> Verify legitimate purchases through Google Play</li>
+                <li><strong>Security & Fraud Prevention:</strong> Rate limiting and device validation</li>
             </ul>
+
+            <h2>Data Storage & Security</h2>
+
+            <h3>Local Storage (On Your Device)</h3>
+            <ul>
+                <li>qBittorrent server credentials</li>
+                <li>Biometric authentication data (Android Keystore)</li>
+                <li>App preferences and settings</li>
+                <li>Trial status cache</li>
+            </ul>
+
+            <h3>Cloud Storage (Cloudflare Workers KV)</h3>
+            <ul>
+                <li>Device ID (anonymized identifier)</li>
+                <li>Trial start date</li>
+                <li>Purchase status and token</li>
+                <li>Rate limiting information</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>Security Measures</h3>
+                <ul>
+                    <li>All data transmitted using HTTPS encryption</li>
+                    <li>Cloudflare KV data encrypted at rest</li>
+                    <li>Rate limiting to prevent unauthorized access</li>
+                    <li>Device ID validation to prevent fraud</li>
+                </ul>
+            </div>
 
             <h2>Third-Party Services</h2>
 
+            <div class="yes-services">
+                <h3>Services We Use</h3>
+                <ul>
+                    <li><strong>Google Play Billing:</strong> In-app purchases and payment processing</li>
+                    <li><strong>Cloudflare Workers:</strong> Backend API for trial and purchase verification</li>
+                    <li><strong>@capgo/native-purchases:</strong> Google Play Billing integration library</li>
+                </ul>
+            </div>
+
             <div class="no-services">
-                <h3>None</h3>
-                <p>This app does <strong>not</strong> use any third-party services, including:</p>
+                <h3>Services We Do NOT Use</h3>
                 <ul>
-                    <li>No analytics (Google Analytics, Firebase, etc.)</li>
-                    <li>No crash reporting</li>
-                    <li>No advertising networks</li>
-                    <li>No data sharing with external parties</li>
+                    <li>Analytics services (Google Analytics, Firebase, etc.)</li>
+                    <li>Advertising networks</li>
+                    <li>Crash reporting with personal data</li>
+                    <li>Social media integrations</li>
+                    <li>Data brokers or third-party marketers</li>
                 </ul>
             </div>
 
-            <h2>Network Communication</h2>
-            <p>The app communicates <strong>only</strong> with:</p>
+            <h2>Data Retention</h2>
             <ul>
-                <li><strong>Your qBittorrent server</strong> (URL you provide)</li>
-                <li><strong>No other servers or services</strong></li>
-            </ul>
-
-            <h2>Permissions</h2>
-
-            <h3>Required Permissions</h3>
-            <div class="permission-list">
-                <ul>
-                    <li><strong>Internet:</strong> To connect to your qBittorrent server</li>
-                    <li><strong>Notifications:</strong> To send torrent status notifications</li>
-                    <li><strong>Biometric (optional):</strong> For fingerprint/face unlock authentication</li>
-                </ul>
-            </div>
-
-            <h3>Optional Permissions</h3>
-            <div class="permission-list">
-                <ul>
-                    <li><strong>Background Work:</strong> For background monitoring feature (can be disabled)</li>
-                </ul>
-            </div>
-
-            <h2>Data Security</h2>
-            <ul>
-                <li>Credentials are encrypted using Android's Keystore</li>
-                <li>All communication with your server uses the protocol you configure (HTTP/HTTPS)</li>
-                <li>No data is transmitted to third parties</li>
+                <li><strong>Trial Data:</strong> Retained indefinitely for fraud prevention</li>
+                <li><strong>Purchase Data:</strong> Retained indefinitely to honor lifetime purchases</li>
+                <li><strong>Login Credentials:</strong> Stored locally until you uninstall the app</li>
+                <li><strong>Rate Limiting Data:</strong> Auto-deleted after 60 minutes</li>
             </ul>
 
             <h2>Your Rights</h2>
-            <p>You have full control over your data:</p>
+            <p>You have the right to:</p>
             <ul>
-                <li>Delete all data by uninstalling the app</li>
-                <li>Disable background monitoring at any time</li>
-                <li>Clear credentials by logging out</li>
+                <li>Access your trial and purchase data</li>
+                <li>Request deletion of your device ID (contact us)</li>
+                <li>Opt out of biometric authentication</li>
+                <li>Uninstall the app (removes all local data)</li>
             </ul>
 
+            <div class="highlight-box">
+                <p><strong>Note:</strong> Deleting your device ID will reset your trial period and may affect your
+                    purchase status.</p>
+            </div>
+
+            <h2>Data Sharing</h2>
+
+            <h3>We do NOT:</h3>
+            <div class="no-services">
+                <ul>
+                    <li>Sell your data to third parties</li>
+                    <li>Share your qBittorrent credentials with anyone</li>
+                    <li>Use your data for advertising</li>
+                    <li>Track your torrent activity</li>
+                </ul>
+            </div>
+
+            <h3>We DO:</h3>
+            <div class="yes-services">
+                <ul>
+                    <li>Store minimal device information for trial tracking</li>
+                    <li>Use Google Play for payment processing</li>
+                    <li>Use Cloudflare for secure backend services</li>
+                </ul>
+            </div>
+
             <h2>Children's Privacy</h2>
-            <p>This app does not knowingly collect information from children under 13.</p>
+            <p>This app is not intended for children under 13. We do not knowingly collect information from children.
+            </p>
 
             <h2>Changes to This Policy</h2>
-            <p>We may update this privacy policy from time to time. Changes will be posted within the app.</p>
+            <p>We may update this Privacy Policy from time to time. Changes will be posted in the app and on our
+                website.</p>
 
-            <h2>Contact</h2>
-            <p>For questions about this privacy policy, please contact:</p>
+            <h2>Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, please contact us at:</p>
             <ul>
-                <li><strong>Developer:</strong> Vlady's Tools - bonteav@gmail.com</li>
+                <li><strong>Email:</strong> [your-email@example.com]</li>
+                <li><strong>GitHub:</strong> [your-github-repo-url]</li>
+            </ul>
+
+            <h2>Compliance</h2>
+            <p>This app complies with:</p>
+            <ul>
+                <li>Google Play Developer Program Policies</li>
+                <li>EU General Data Protection Regulation (GDPR)</li>
+                <li>California Consumer Privacy Act (CCPA)</li>
             </ul>
 
             <div class="summary-box">
-                <strong>Summary:</strong> MyQBUI is a privacy-focused app that stores all data locally on your device and communicates only with your qBittorrent server. We do not collect, store, or share any personal information with third parties.
+                <strong>Summary:</strong> We collect minimal data (device ID, trial info, purchase tokens). Your
+                qBittorrent credentials stay on your device. We use encryption and security best practices. No selling
+                or advertising use of your data.
             </div>
         </div>
 
         <div class="footer">
-            <p><strong>MyQBUI</strong></p>
-            <p>Remote Control for qBittorrent</p>
+            <p><strong>qBittorrent WebUI</strong></p>
+            <p>by Vlady's Tools</p>
         </div>
     </div>
 </body>
+
 </html>
